@@ -1,29 +1,28 @@
+import logo from './logo.svg';
 import './App.css';
-import ScreenAppBar from './headers/Appbar';
-import HomePage from "./pages/HomePage.js";
-import PrivacyPolicyPage  from './pages/PrivacyPolicyPage';
-import { HashRouter as Router, Routes , Route } from 'react-router-dom';
+import Navbar from './Navbar';
 
-const App = () => {
-  // Add Routers and Switches here for Privacy 
-  // First page: HomePage
-  // Second page: Privacy Policy
-
+function App() {
   return (
-    <div className='App'>
-      <ScreenAppBar />
-      <Router>
-        <Routes>
-          <Route exact path="/">
-            <Route path= "/" element={<HomePage />}/>
-          </Route>
-          <Route exact path="/privacyPolicy">
-            <Route path="/privacyPolicy" element={<PrivacyPolicyPage />}/>
-          </Route>
-        </Routes>
-      </Router>
+    // <div className="App">
+    //   <header className="App-header">
+    //     <img src={logo} className="App-logo" alt="logo" />
+    //     <p>
+    //       Edit <code>src/App.js</code> and save to reload.
+    //     </p>
+    //     <a
+    //       className="App-link"
+    //       href="https://reactjs.org"
+    //       target="_blank"
+    //       rel="noopener noreferrer"
+    //     >
+    //       Learn React
+    //     </a>
+    //   </header>
+    // </div>
+    <div>
+      <Navbar />
     </div>
-
   );
 }
 
