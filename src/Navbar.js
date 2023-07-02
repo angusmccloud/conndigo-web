@@ -1,30 +1,23 @@
-import * as React from 'react';
-// import { Appbar } from 'react-native-paper';
-// import { StyleSheet } from 'react-native';
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
+export default function Navbar() {
+    return (
+    <nav className="nav">
+        <ul>
+            <CustomLink to="/" >Home</CustomLink>
+            <CustomLink to="/policy" >Privacy Policy</CustomLink>
+        </ul>
+    </nav>
+    )
+}
 
-const Navbar = () => (
-  <p>Test</p>
-//  <Appbar style={styles.bottom}>
-//    <Appbar.Action
-//      icon="archive"
-//      onPress={() => console.log('Pressed archive')}
-//     />
-//     <Appbar.Action icon="mail" onPress={() => console.log('Pressed mail')} />
-//     <Appbar.Action icon="label" onPress={() => console.log('Pressed label')} />
-//     <Appbar.Action
-//       icon="delete"
-//       onPress={() => console.log('Pressed delete')}
-//     />
-//   </Appbar>
- );
-
-export default Navbar
-
-// const styles = StyleSheet.create({
-//   bottom: {
-//     position: 'absolute',
-//     left: 0,
-//     right: 0,
-//     bottom: 0,
-//   },
-// });
+function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to);
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+    return (
+        <li className={isActive ? "active" : ""}>
+            <Link to={to} {...props}>
+                {children}
+            </Link>
+        </li>
+    )
+}
