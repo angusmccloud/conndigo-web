@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/conndigo-web/static/css/main.70893623.css",
-    "main.js": "/conndigo-web/static/js/main.61c6f299.js",
+    "main.js": "/conndigo-web/static/js/main.a632e226.js",
     "static/js/787.45e1b7ea.chunk.js": "/conndigo-web/static/js/787.45e1b7ea.chunk.js",
     "static/media/PrivacyPolicy.md": "/conndigo-web/static/media/PrivacyPolicy.e8a667aa465d9f50fc03.md",
     "index.html": "/conndigo-web/index.html",
     "main.70893623.css.map": "/conndigo-web/static/css/main.70893623.css.map",
-    "main.61c6f299.js.map": "/conndigo-web/static/js/main.61c6f299.js.map",
+    "main.a632e226.js.map": "/conndigo-web/static/js/main.a632e226.js.map",
     "787.45e1b7ea.chunk.js.map": "/conndigo-web/static/js/787.45e1b7ea.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.70893623.css",
-    "static/js/main.61c6f299.js"
+    "static/js/main.a632e226.js"
   ]
 }
