@@ -1,0 +1,123 @@
+type ScheduledNotifications @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userId: String!
+  subject: String!
+  linking: String
+  messageBody: String!
+  scheduleTrigger: String!
+  displayTime: AWSDateTime!
+}
+
+type Notifications @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userId: String!
+  read: Boolean!
+  messageBody: String!
+  linking: String
+  subject: String!
+  displayTime: AWSDateTime!
+}
+
+type Games @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  iconName: String!
+  minNumberOfTeams: Int!
+  maxNumberOfTeams: Int
+  minNumberOfPlayersPerTeam: Int!
+  maxNumberOfPlayersPerTeam: Int
+  points: [Int!]
+  rules: String
+  canHaveMultipleWinners: Boolean!
+}
+
+type StandingsPeople @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userId: String
+  rank: Int
+  points: Int
+  gamesPlayed: Int
+  lastCalculationTime: AWSDateTime
+}
+
+type AdminFavorites @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  image: String!
+}
+
+type StandingsTeams @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  teamId: String
+  rank: Int
+  points: Int
+  lastCalculationTime: AWSDateTime
+}
+
+type Posts @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userId: String!
+  messageBody: String
+  images: [String]
+  olympicEvent: Boolean!
+  eventDetails: String
+  Comments: [Comments] @hasMany(indexName: "byPosts", fields: ["id"])
+  Reactions: [Reactions] @hasMany(indexName: "byPosts", fields: ["id"])
+  usersInPost: [String]
+}
+
+type Teams @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  Users: [Users] @hasMany(indexName: "byTeams", fields: ["id"])
+  iconName: String
+  description: String
+}
+
+type Users @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  image: String
+  about: String
+  whereAreYouStaying: String
+  teamsID: ID! @index(name: "byTeams")
+  admin: Boolean!
+  unreadNotifications: Int
+}
+
+type ExpoTokens @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  token: String!
+  userId: String
+}
+
+type Reactions @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userId: String!
+  reactionType: String!
+  postsID: ID! @index(name: "byPosts")
+}
+
+type Comments @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userId: String!
+  comment: String!
+  postsID: ID! @index(name: "byPosts")
+}
+
+type FAQ @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  question: String!
+  answer: String!
+  sortOrder: Int!
+}
+
+type Schedule @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  time: String!
+  day: String!
+  description: String!
+  location: String!
+  sortOrder: Int!
+}
+ 
